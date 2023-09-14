@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+// Regexp golf
+// Code golf is a term used for the game of trying to express a particular program
+// in as few characters as possible. Similarly, regexp golf is the practice of writing
+// as tiny a regular expression as possible to match a given pattern, and only that
+// pattern.
+// For each of the following items, write a regular expression to test whether any
+// of the given substrings occur in a string. The regular expression should match
+// only strings containing one of the substrings described. Do not worry about
+// word boundaries unless explicitly mentioned. When your expression works, see
+// whether you can make it any smaller.
+// 1. car and cat
+// 2. pop and prop
+// 3. ferret, ferry, and ferrari
+// 4. Any word ending in ious
+// 5. A whitespace character followed by a period, comma, colon, or semicolon
+// 6. A word longer than six letters
+// 7. A word without the letter e (or E)
+
+
+
+//  1. car and cat
+let result =/ca(r|t)/.test("my cat is in the car");
+console.log(result)
+
+//2. Pop and prop
+
+let result2 = /pop|prop/.test("The pop star is a proper man");
+console.log(result2) 
+
+
+//3. ferret, ferry, ferrari
+
+let result3 = /ferr(et|y|ari)/.test("The ferrari won the race");
+console.log(result3)
+
+//4. any word ending in ious
+
+let result4 =/\w+ious/.test("The food is so delicious");
+console.log(result4)
+
+
+//5 a white space character
+
+let result5 =/\s|.|,|:|;/.test("Nobody wants to die, but wants to stay alive; Kemi wants to live.");
+console.log(result5)
+
+
+//6. Any word longer than 6 letters
+
+let result6 = /\w{6,}/.test("meticulous");
+console.log(result6)
+
+
+//7. a word without letter e
+
+let result7 = /\b([^e|E])+\b/gi.test("Yolk");
+console.log(result7)
+
+//Exercise 2
+// Quoting style
+// Imagine you have written a story and used single quotation marks throughout to mark pieces of dialogue. Now you want to replace all the dialogue quotes with double quotes, while keeping the single quotes used in contractions like aren’t.
+
+// Think of a pattern that distinguishes these two kinds of quote usage and craft a call to the replace method that does the proper replacement.
+
+
+ let story ="It is either his novel 'The Embassy of Cambodia' or my very own 'The Complete Cosmicomics'."
+        //Define a regular expression pattern to identify dialogue quotes
+        let pattern =/A/g 
+        let output = story.replace(pattern, "B")
+        console.log(output)
+
+        //Exercise 3
+//         Numbers again
+// Write an expression that matches only JavaScript-style numbers. It must support an optional minus or plus sign in front of the number, the decimal dot, and exponent notation—5e-3 or 1E10—again with an optional sign in front of the exponent. Also note that it is not necessary for there to be digits in front of or after the dot, but the number cannot be a dot alone. That is, .5 and 5. are valid JavaScript numbers, but a lone dot isn’t.
+
+
+function validJsNumber(input) {
+    const regex = /^[+-]?\d*\.?\d+(?:[eE][+-]?\d+)?$/;
+    return regex.test(input);
+  }
+  console.log(validJsNumber("+2"));
+  console.log(validJsNumber("0.5"));
+  console.log(validJsNumber("5.0"));
+  console.log(validJsNumber("-6"));
+
+    </script>
+</body>
+</html>
